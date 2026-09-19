@@ -6,76 +6,54 @@
 
 # Costanti del progetto
 
-Per evitare confusione, in questo esercizio useremo sempre questi nomi.
-
-| Elemento                  | Valore                        |
-| ------------------------- | ----------------------------- |
-| Repository del Professore | `https://github.com/ProfNardi/webpage-git-github-exercise` |
-| Branch principale         | `main`                        |
-| Branch classe 4CI         | `Classe4CI`                   |
-| Branch classe 4DI         | `Classe4DI`                   |
-| Repository dello studente | il proprio **Fork**           |
-| Remote del proprio GitHub | `origin`                      |
-| Remote del Professore     | `upstream`                    |
-| File da modificare        | `index.html`                  |
-
-### Struttura del repository del Professore
-
-```text
-webpage-git-github-exercise
-│
-├── main
-├── Classe4CI
-└── Classe4DI
-```
-
-Gli studenti della **4CI** lavorano sul branch `Classe4CI`.
-
-Gli studenti della **4DI** lavorano sul branch `Classe4DI`.
-
-> **Importante:** `main`, `Classe4CI` e `Classe4DI` sono **branch**.
-> `origin` e `upstream` sono invece nomi di **remote**.
+| Elemento                 | Cos'è                                                            | Nel nostro progetto                                                                |
+| ------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Repository o REPO**    | Il progetto Git completo ospitato su GitHub                      | `webpage-git-github-exercise`                                                      |
+| **Repository del professore** | Repository originale                                             | `ProfNardi/webpage-git-github-exercise`                                            |
+| **Fork**                 | Copia di una repository GitHub → GitHub                          | Copia della REPO del professore → REPO dello studente                                   |
+| **Remote**               | Un nome/alias che Git usa per identificare una repository remota | `origin`, `upstream`                                                               |
+| **`origin`**             | Remote che normalmente punta al fork dello studente              | GitHub dello studente                                                              |
+| **`upstream`**           | Remote che punta alla repository originale                       | GitHub del professore                                                                   |
+| **Branch**               | Un ramo della cronologia Git dentro una repository               | `main`, `Classe4CI`, `Classe4DI`                                                   |
+| **`main`**               | Branch principale                                                | Branch principale del progetto                                                     |
+| **`Classe4CI`**          | Branch dedicato alla 4CI                                         | Branch della 4CI                                                                   |
+| **`Classe4DI`**          | Branch dedicato alla 4DI                                         | Branch della 4DI                                                                   |
+| **Clone**                | Download da GitHub → Git                                         | Lo studente clona il proprio fork in Git                                           |
+| **Commit**               | Salva una versione nella storia di Git                           | `git commit`                                                                       |
+| **Push**                 | Upload da Git → GitHub                                           | Lo studente invia i propri commit al proprio GitHub                                |
+| **Pull Request**         | Proposta di modifica da una repository/branch verso un'altra     | Lo studente propone le modifiche dal proprio fork al branch del professore |
 
 ---
 
-# 1. Il modello di lavoro
-
-Abbiamo due repository:
-
-| Mio GitHub              | GitHub del Professore                          |
-| ----------------------- | ---------------------------------------------- |
-| È il mio Fork personale | È il repository originale                      |
-| Qui faccio `push`       | Qui propongo le modifiche tramite `Pull Request` |
-| Remote: `origin`        | Remote: `upstream`                             |
-
-Il flusso è:
+# Flusso di lavoro
 
 ```text
 GitHub del Professore
        │
-      Fork
+      Fork              GitHub → GitHub
        ▼
-Mio GitHub
+   Mio GitHub
        │
-     clone
+     clone              GitHub → Git
        ▼
-Mio PC
+      Git
        │
-   modifica
+    modifica
        │
-   add → commit → push
+   add → commit         tutto in Git
        │
+      push              Git → GitHub
        ▼
-Mio GitHub
+   Mio GitHub
        │
- Pull Request
+ Pull Request           GitHub → GitHub
        ▼
 GitHub del Professore
 ```
 
 ---
 
-# 2. Creare il Fork
+# 1. Creare il Fork
 
 Apri il repository del Professore su GitHub.
 
@@ -87,7 +65,7 @@ Avrai così una copia del progetto nel tuo account GitHub.
 
 ---
 
-# 3. Scegliere il branch della classe
+# 2. Scegliere il branch della classe
 
 Il Professore ha creato due branch:
 
@@ -100,7 +78,7 @@ Usa il branch della tua classe.
 
 ---
 
-# 4. Clonare il proprio repository
+# 3. Clonare il proprio repository
 
 Dal **proprio Fork** su GitHub:
 
@@ -120,7 +98,7 @@ cd webpage-git-github-exercise
 
 ---
 
-# 5. Controllare Git
+# 4. Controllare Git
 
 Esegui:
 
@@ -142,7 +120,7 @@ origin → il mio GitHub
 
 ---
 
-# 6. Selezionare il branch della classe
+# 5. Selezionare il branch della classe
 
 Per la 4CI:
 
@@ -173,9 +151,9 @@ Esempio:
 
 ---
 
-# 7. Modifica in locale il progetto`
+# 6. Sviluppo software (Developement)
 
-Apri:
+Modifica:
 
 ```text
 index.html
@@ -184,7 +162,7 @@ Oppure aggiungi nuovi file.
 
 ---
 
-# 8. Preparare la modifica
+# 7. Preparare la commit
 
 Esegui:
 
@@ -207,7 +185,7 @@ La modifica dovrebbe risultare pronta per il commit.
 
 ---
 
-# 9. Creare il commit (versionamento locale, stai usando Git)
+# 8. Creare la commit (versioning)
 
 Esegui:
 
@@ -219,7 +197,7 @@ Il commit salva la modifica nella cronologia **locale** di Git.
 
 ---
 
-# 10. Pubblicare su GitHub
+# 9. Pubblicare su GitHub
 
 Esegui:
 
@@ -236,12 +214,9 @@ Mio PC
   ▼
 Mio GitHub
 ```
-
 ---
 
-Certo. Per il punto 12 possiamo mettere **entrambe le modalità**, tenendole separate e semplici.
-
-### 11. Crea la Pull Request
+### 10. Crea la Pull Request
 
 Dopo aver fatto `push`, puoi creare la Pull Request in due modi.
 
@@ -276,7 +251,7 @@ gh pr create --base Classe4DI --head NOME-DELLA-TUA-BRANCH --title "Modifica pag
 
 ---
 
-# 12. Se il Professore chiede una semplice modifica
+# Se il Professore chiede una semplice modifica
 
 Non creare necessariamente una nuova Pull Request.
 
@@ -292,7 +267,7 @@ Il nuovo commit verrà aggiunto alla Pull Request già aperta.
 
 ---
 
-# 13. I quattro comandi fondamentali
+# I quattro comandi fondamentali
 
 Durante il lavoro utilizzerai soprattutto:
 
@@ -338,7 +313,7 @@ Pull Request
 
 ---
 
-# 14. Se qualcosa non funziona
+# Se qualcosa non funziona
 
 Prima di eseguire altri comandi, controlla sempre:
 
@@ -364,7 +339,7 @@ Questi sono i **quattro controlli fondamentali**.
 
 ---
 
-# 16. Problemi comuni
+# Problemi comuni
 
 ### `git push` dice `Everything up-to-date`
 
@@ -396,47 +371,12 @@ git restore index.html
 
 ---
 
-# 17. La cosa più importante da ricordare
-
-```text
-origin   = il mio GitHub
-upstream = GitHub del Professore
-```
-
-e:
-
-```text
-main       = branch principale
-Classe4CI  = branch della 4CI
-Classe4DI  = branch della 4DI
-```
-
-Quindi:
-
-```text
-                GITHUB DEL PROFE
-                       │
-              ┌────────┴────────┐
-              │                 │
-          Classe4CI          Classe4DI
-              │                 │
-             Fork              Fork
-              │                 │
-              ▼                 ▼
-         MIO GITHUB        MIO GITHUB
-           origin            origin
-              │                 │
-            clone             clone
-              │                 │
-            MIO PC            MIO PC
-```
-
 ## Obiettivo dell'esercizio
 
-Imparare questo percorso:
+Impara questo percorso:
 
 ```text
-Fork → Clone → Modifica → Add → Commit → Push → Pull Request
+Fork → Clone → (Modifica → Add → Commit) → Push → Pull Request
 ```
 
 e capire la differenza tra:
